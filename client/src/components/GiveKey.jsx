@@ -6,12 +6,12 @@ export const GiveKey = ({uniqueKey}) => {
   return (
     <>
     <div className="container">
-    <div class="card horizontal">
-      <div class="card-stacked">
-        <div class="card-content">
+    <div className="card horizontal">
+      <div className="card-stacked">
+        <div className="card-content">
             <b>СОХРАНИТЕ КЛЮЧ</b>
         </div>
-        <div class="card-action">
+        <div className="card-action">
           <a><NavLink to="/mining">Продолжить</NavLink></a>
         </div>
       </div>

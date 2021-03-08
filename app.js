@@ -8,10 +8,8 @@ const app = express();
 app.use(express.json({ extended: true}));
 
 app.use('/api/auth', require('./routes/auth.routes'));
-//app.use('/api/link', require('./routes/link.routes'));
 app.use('/api/register', require('./routes/register.routes'));
 app.use('/api/miner', require('./routes/miner.routes'));
-//app.use('/t', require('./routes/redirect.routes'));
 app.use('/api/faucet', require('./routes/faucet.routes'));
 
 const PORT = config.get('port') || 5000;
@@ -27,7 +25,7 @@ async function start() {
         })
     
        //если база данных подключена то запускаем сервер
-        app.listen(PORT, () => console.log(`woooyyyyy ${PORT} `));
+        app.listen(PORT, () => console.log(`Сервер запущен на ${PORT} `));
     } catch (e) {
         console.log('Server error СБОЙ', e.message);
         process.exit(1);

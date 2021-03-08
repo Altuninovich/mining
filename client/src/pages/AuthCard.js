@@ -19,7 +19,6 @@ useEffect(async () => {
 }, [])
 
 if (auth) {
-  console.log(uniqueKey)
   return (
     <div className="container">
       {uniqueKey ? <GiveKey uniqueKey={uniqueKey}/> : <InputKey/>}
