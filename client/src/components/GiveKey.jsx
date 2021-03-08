@@ -12,7 +12,7 @@ export const GiveKey = ({uniqueKey}) => {
             <b>СОХРАНИТЕ КЛЮЧ</b>
         </div>
         <div className="card-action">
-          <a><NavLink to="/mining">Продолжить</NavLink></a>
+          <NavLink to="/mining">Продолжить</NavLink>
         </div>
       </div>
     </div>
