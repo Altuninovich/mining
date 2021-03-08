@@ -8,10 +8,10 @@ const app = express();
 app.use(express.json({ extended: true}));
 
 app.use('/api/auth', require('./routes/auth.routes'));
-app.use('/api/link', require('./routes/link.routes'));
+//app.use('/api/link', require('./routes/link.routes'));
 app.use('/api/register', require('./routes/register.routes'));
 app.use('/api/miner', require('./routes/miner.routes'));
-app.use('/t', require('./routes/redirect.routes'));
+//app.use('/t', require('./routes/redirect.routes'));
 app.use('/api/faucet', require('./routes/faucet.routes'));
 
 const PORT = config.get('port') || 5000;

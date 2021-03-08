@@ -1,11 +1,11 @@
 import React, {useCallback, useContext, useEffect, useState} from 'react'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+//import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import {useHttp} from '../hooks/http.hook'
-import {AuthContext} from '../context/AuthContext'
+//import {AuthContext} from '../context/AuthContext'
 import {Loader} from '../components/Loader'
-import {LinkCard} from '../components/LinkCard'
+//import {LinkCard} from '../components/LinkCard'
 import { InputKey } from '../components/InputKey'
-import { Navbar } from '../components/Navbar'
+//import { Navbar } from '../components/Navbar'
 import { GiveKey } from '../components/GiveKey'
 
 export const AuthCard = () => {

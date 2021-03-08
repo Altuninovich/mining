@@ -1,8 +1,7 @@
-import React, {useContext} from 'react'
-import {NavLink, useHistory} from 'react-router-dom'
+import React from 'react'
+import {NavLink} from 'react-router-dom'
 
 export const GiveKey = ({uniqueKey}) => {
-  //const splitUniqueKey = uniqueKey.match(/.{1,30}/g)
 
   return (
     <>

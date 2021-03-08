@@ -1,3 +1,5 @@
+/*
+
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { useHttp } from '../hooks/http.hook';
@@ -94,3 +96,4 @@ export const AuthPage = () => {
         </div>
     )
 }
+*/

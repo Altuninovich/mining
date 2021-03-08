@@ -1,5 +1,5 @@
 const {Router} = require('express')
-const Link = require('../models/Link')
+//const Link = require('../models/Link')
 const Miner = require('../models/Miners')
 const crypto = require('crypto')
 const router = Router()

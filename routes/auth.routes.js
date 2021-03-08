@@ -1,10 +1,10 @@
 const {Router} = require('express')
-const bcrypt = require('bcryptjs')
+//const bcrypt = require('bcryptjs')
 const crypto = require('crypto')
-const config = require('config')
-const jwt = require('jsonwebtoken')
-const {check, validationResult} = require('express-validator')
-const User = require('../models/User')
+//const config = require('config')
+//const jwt = require('jsonwebtoken')
+//const {check, validationResult} = require('express-validator')
+//const User = require('../models/User')
 const router = Router()
 const Miner = require('../models/Miners')
 
@@ -68,7 +68,7 @@ router.post(
     res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })
   }
 })
-
+/*
 // /api/auth/login
 router.post(
   '/login',
@@ -114,7 +114,7 @@ router.post(
   }
 })
 
-
+*/
 module.exports = router
 
 
