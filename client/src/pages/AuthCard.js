@@ -6,33 +6,33 @@ import { GiveKey } from '../components/GiveKey'
 import {AuthContext} from '../context/AuthContext'
 
 export const AuthCard = () => {
-const authContext = useContext(AuthContext)
-const {request} = useHttp()
-const [auth, setAuth] = useState(false)
-const [uniqueKey, setKey] = useState(null)
-useEffect(async () => {
-  try {
-  const data = await request('/api/register/', 'GET')
-  setKey(data.key)
-  setAuth(true)
-  uniqueKey && authContext.login({isAuthenticated: true})
-} catch (error) {
-          
-}
-}, [])
+  const authContext = useContext(AuthContext)
+  const {request} = useHttp()
+  const [auth, setAuth] = useState(false)
+  const [uniqueKey, setKey] = useState(null)
+  useEffect(async () => {
+    try {
+      const data = await request('/api/register/', 'GET')
+      setKey(data.key)
+      setAuth(true)
+      uniqueKey && authContext.login({isAuthenticated: true})
+    } catch (error) {
 
-if (auth) {
+    }
+  }, [])
+
+  if (auth) {
+    return (
+        <div className="container">
+          {uniqueKey ? <GiveKey uniqueKey={uniqueKey}/> : <InputKey/>}
+        </div>
+    )
+  }
+
   return (
-    <div className="container">
-      {uniqueKey ? <GiveKey uniqueKey={uniqueKey}/> : <InputKey/>}
-    </div>  
+      <div className="container">
+        <Loader/>
+      </div>
   )
-}
-
-return (
-  <div className="container">
-    <Loader />
-  </div>  
-)
 
 }

@@ -3,37 +3,39 @@ import {AuthContext} from '../context/AuthContext'
 import {useHistory} from 'react-router-dom'
 
 export class Mining extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {balance: null, runMining: false}
-  }
+    constructor(props) {
+        super(props)
+        this.state = {balance: null, runMining: false}
+    }
 
-  stopMining = () => {
-    this.setState({runMining: false})
-    clearInterval(this.timerId)
-  }
+    stopMining = () => {
+        this.setState({runMining: false})
+        clearInterval(this.timerId)
+    }
 
-  
-  mining = async () => {
-    try {
-      const response = await fetch('/api/faucet', {method:'GET'})
-      const data = await response.json()
-      this.setState({balance: data.balance, runMining: true})
-   } catch (e) {}
-  }
-  
 
-startMining = () => {
-  this.mining() 
-    this.timerId = setInterval(async () => {
-      try {
-        const response = await fetch('/api/faucet', {method:'GET'})
-        const data = await response.json()
-        this.setState({balance: data.balance, runMining: true})
-     } catch (e) {}
-   }, 10000);
+    mining = async () => {
+        try {
+            const response = await fetch('/api/faucet', {method: 'GET'})
+            const data = await response.json()
+            this.setState({balance: data.balance, runMining: true})
+        } catch (e) {
+        }
+    }
 
-}
+
+    startMining = () => {
+        this.mining()
+        this.timerId = setInterval(async () => {
+            try {
+                const response = await fetch('/api/faucet', {method: 'GET'})
+                const data = await response.json()
+                this.setState({balance: data.balance, runMining: true})
+            } catch (e) {
+            }
+        }, 10000);
+
+    }
   
 componentDidMount() {
   this.startMining()
