@@ -12,6 +12,14 @@ app.use('/api/register', require('./routes/register.routes'));
 app.use('/api/miner', require('./routes/miner.routes'));
 app.use('/api/faucet', require('./routes/faucet.routes'));
 
+if (process.env.NODE_ENV === 'production') {
+    app.use('/', express.static(path.join(__dirname, 'client', 'build')))
+  
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
+  }
+
 const PORT = config.get('port') || 5000;
 
 async function start() {

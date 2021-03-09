@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
+import {AuthContext} from '../context/AuthContext'
+import {useHistory} from 'react-router-dom'
 
-export class MiningCard extends React.Component {
+export class Mining extends React.Component {
   constructor(props) {
     super(props)
     this.state = {balance: null, runMining: false}
@@ -66,4 +68,19 @@ render() {
 
 }
 }
+
+export const MiningCard  = () => {
+  const authContext = useContext(AuthContext)
+  //const [auth, setAuth] = useState(authContext.isAuthenticated)
+  const history = useHistory()
+  
+  if (authContext.isAuthenticated) {
+    return <Mining/>
+  }
+  
+  history.push('/')
+  return null
+  }
+
+
 

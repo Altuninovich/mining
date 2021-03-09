@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useHttp } from '../hooks/http.hook'
 import {useHistory} from 'react-router-dom'
 import {useMessage} from '../hooks/message.hook'
+import {AuthContext} from '../context/AuthContext'
 
 export const InputKey = () => {
+  const auth = useContext(AuthContext)
   const [text, setText] = useState('')
   const history = useHistory()
   const {error, request, clearError} = useHttp()
@@ -23,6 +25,10 @@ export const InputKey = () => {
     try {
       const response = await request('/api/register/', 'POST', {text})
         if (response.success) {
+          //auth.login({isAuthenticated: text})
+          auth.isAuthenticated = true
+          //auth({isAuthenticated: true})
+          //AuthContext({isAuthenticated: true})
           history.push('/mining')
         }
         

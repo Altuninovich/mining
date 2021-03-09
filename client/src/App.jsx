@@ -3,10 +3,14 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import {Navbar} from './components/Navbar'
 import 'materialize-css'
 import { AuthCard } from './pages/AuthCard'
-import { MiningCard } from './components/MiningCard';
+import { MiningCard } from './components/MiningCard'
+import {AuthContext} from './context/AuthContext'
 
 function App() {
   return (
+    <AuthContext.Provider value={{
+        isAuthenticated: false
+      }}>
     <div className="container">
         <Router>
             <Navbar/>
@@ -16,6 +20,7 @@ function App() {
             </Switch>
         </Router>
     </div>
+    </AuthContext.Provider>
 )
 }
 
