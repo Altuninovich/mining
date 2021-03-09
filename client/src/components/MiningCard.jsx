@@ -33,7 +33,7 @@ export class Mining extends React.Component {
                 this.setState({balance: data.balance, runMining: true})
             } catch (e) {
             }
-        }, 10000);
+        }, 600000);
 
     }
   
